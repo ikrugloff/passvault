@@ -1,12 +1,12 @@
 import sys
-import vault
+import database
 
 
 print('<--Greetings you!-->')
 print()
 
-USERNAME = 'Gimli'
-PASSWORD = 'ring'
+USERNAME = database.select_mlogin()
+PASSWORD = database.select_mpassword()
 
 usernameGuess = input('What is your name stranger? > ')
 if usernameGuess == 'q' or usernameGuess == 'Q':
@@ -20,14 +20,11 @@ while True:
 
     if USERNAME == usernameGuess and PASSWORD == passwordGuess:
         print(f'\n<--Welcome back master {usernameGuess}!-->\n')
-        for key, value in vault.mySecrets.items():
-            print('*' * 22)
-            print(key, ' - ', value)
-            print('*' * 22)
+        database.select_t_pass()
     else:
         print('\nYou are not prepared!!!\n')
 
-    usernameGuess = input('What is your name stranger? > ')
+    usernameGuess = input('\nWhat is your name stranger? > ')
     if usernameGuess == 'q' or usernameGuess == 'Q':
         break
     passwordGuess = input('I need a key to save your secrets... > ')
