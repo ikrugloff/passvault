@@ -1,0 +1,117 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'registration_page.ui'
+#
+# Created by: PyQt5 UI code generator 5.11.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MyWin(object):
+    def setupUi(self, MyWin):
+        MyWin.setObjectName("MyWin")
+        MyWin.setEnabled(False)
+        MyWin.resize(830, 501)
+        MyWin.setMinimumSize(QtCore.QSize(830, 501))
+        MyWin.setMaximumSize(QtCore.QSize(830, 501))
+        self.centralwidget = QtWidgets.QWidget(MyWin)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalFrame = QtWidgets.QFrame(self.centralwidget)
+        self.verticalFrame.setGeometry(QtCore.QRect(0, 0, 830, 501))
+        self.verticalFrame.setMinimumSize(QtCore.QSize(100, 100))
+        self.verticalFrame.setMaximumSize(QtCore.QSize(830, 501))
+        self.verticalFrame.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.verticalFrame.setObjectName("verticalFrame")
+        self.label_3 = QtWidgets.QLabel(self.verticalFrame)
+        self.label_3.setGeometry(QtCore.QRect(30, 180, 350, 30))
+        self.label_3.setMaximumSize(QtCore.QSize(350, 30))
+        self.label_3.setObjectName("label_3")
+        self.label_2 = QtWidgets.QLabel(self.verticalFrame)
+        self.label_2.setGeometry(QtCore.QRect(30, 160, 158, 17))
+        self.label_2.setMaximumSize(QtCore.QSize(350, 30))
+        self.label_2.setObjectName("label_2")
+        self.pushButtonSave = QtWidgets.QPushButton(self.verticalFrame)
+        self.pushButtonSave.setGeometry(QtCore.QRect(700, 430, 81, 29))
+        self.pushButtonSave.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.pushButtonSave.setObjectName("pushButtonSave")
+        self.formFrame = QtWidgets.QFrame(self.verticalFrame)
+        self.formFrame.setGeometry(QtCore.QRect(0, 410, 830, 90))
+        self.formFrame.setMaximumSize(QtCore.QSize(830, 90))
+        self.formFrame.setStyleSheet("background-color: rgb(194, 255, 235);\n"
+"")
+        self.formFrame.setFrameShape(QtWidgets.QFrame.Panel)
+        self.formFrame.setObjectName("formFrame")
+        self.formLayout = QtWidgets.QFormLayout(self.formFrame)
+        self.formLayout.setObjectName("formLayout")
+        self.formFrame_2 = QtWidgets.QFrame(self.verticalFrame)
+        self.formFrame_2.setEnabled(False)
+        self.formFrame_2.setGeometry(QtCore.QRect(0, 0, 830, 90))
+        self.formFrame_2.setMaximumSize(QtCore.QSize(830, 90))
+        self.formFrame_2.setStyleSheet("background-color: rgb(194, 255, 235);\n"
+"")
+        self.formFrame_2.setFrameShape(QtWidgets.QFrame.Panel)
+        self.formFrame_2.setObjectName("formFrame_2")
+        self.formLayout_2 = QtWidgets.QFormLayout(self.formFrame_2)
+        self.formLayout_2.setObjectName("formLayout_2")
+        self.line_2 = QtWidgets.QFrame(self.verticalFrame)
+        self.line_2.setGeometry(QtCore.QRect(100, 300, 351, 16))
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.line = QtWidgets.QFrame(self.verticalFrame)
+        self.line.setGeometry(QtCore.QRect(100, 240, 351, 16))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.verticalFrame)
+        self.lineEdit_2.setGeometry(QtCore.QRect(100, 280, 351, 23))
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit = QtWidgets.QLineEdit(self.verticalFrame)
+        self.lineEdit.setGeometry(QtCore.QRect(100, 220, 351, 21))
+        self.lineEdit.setObjectName("lineEdit")
+        self.label_main = QtWidgets.QLabel(self.verticalFrame)
+        self.label_main.setGeometry(QtCore.QRect(20, 10, 798, 37))
+        self.label_main.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(194, 255, 235);\n"
+"")
+        self.label_main.setObjectName("label_main")
+        self.label_little = QtWidgets.QLabel(self.verticalFrame)
+        self.label_little.setGeometry(QtCore.QRect(10, 20, 61, 20))
+        self.label_little.setStyleSheet("font: 75 8pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(194, 255, 235);")
+        self.label_little.setObjectName("label_little")
+        self.pushButtonClose = QtWidgets.QPushButton(self.verticalFrame)
+        self.pushButtonClose.setGeometry(QtCore.QRect(770, 10, 31, 29))
+        self.pushButtonClose.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.pushButtonClose.setStyleSheet("background-color: rgb(194, 255, 235);")
+        self.pushButtonClose.setObjectName("pushButtonClose")
+        self.formFrame_2.raise_()
+        self.label_main.raise_()
+        self.formFrame.raise_()
+        self.label_3.raise_()
+        self.label_2.raise_()
+        self.pushButtonSave.raise_()
+        self.line_2.raise_()
+        self.line.raise_()
+        self.lineEdit_2.raise_()
+        self.lineEdit.raise_()
+        self.label_little.raise_()
+        self.pushButtonClose.raise_()
+        MyWin.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(MyWin)
+        QtCore.QMetaObject.connectSlotsByName(MyWin)
+
+    def retranslateUi(self, MyWin):
+        _translate = QtCore.QCoreApplication.translate
+        MyWin.setWindowTitle(_translate("MyWin", "MyWin"))
+        self.label_3.setText(_translate("MyWin", "An email and strong password are all you need to get started."))
+        self.label_2.setText(_translate("MyWin", "Create your free account "))
+        self.pushButtonSave.setText(_translate("MyWin", "Save"))
+        self.lineEdit_2.setText(_translate("MyWin", "Create a strong password"))
+        self.lineEdit.setText(_translate("MyWin", "Enter your email"))
+        self.label_main.setText(_translate("MyWin", "           Welcome to PassVault"))
+        self.label_little.setText(_translate("MyWin", "PassVault"))
+        self.pushButtonClose.setText(_translate("MyWin", "X"))
+
