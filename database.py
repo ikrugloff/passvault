@@ -36,3 +36,6 @@ def select_mpassword():
         res = conn.execute(select_st)
         for _row in res:
                 return _row[0]
+
+
+
