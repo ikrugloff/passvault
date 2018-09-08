@@ -1,12 +1,19 @@
 import sys
-import database
+import crypt_db
 
+password_check = crypt_db.check_master_password()
+
+while password_check is None:
+        new_master_password = str(input('My lord, create a new master password please! >'))
+        new_master_password = crypt_db.encrypt(new_master_password).decode('utf-8')
+        crypt_db.create_master_password(new_master_password)
+        password_check = crypt_db.check_master_password()
 
 print('<--Greetings you!-->')
 print()
 
-USERNAME = database.select_mlogin()
-PASSWORD = database.select_mpassword()
+USERNAME = crypt_db.get_master_login()
+PASSWORD = crypt_db.get_master_pass()
 
 usernameGuess = input('What is your name stranger? > ')
 if usernameGuess == 'q' or usernameGuess == 'Q':
@@ -20,11 +27,12 @@ while True:
 
     if USERNAME == usernameGuess and PASSWORD == passwordGuess:
         print(f'\n<--Welcome back master {usernameGuess}!-->\n')
-        database.select_t_pass()
+        crypt_db.output()
     else:
-        print('\nYou are not prepared!!!\n')
+        print('\nYou are not prepared!!!')
 
-    usernameGuess = input('\nWhat is your name stranger? > ')
+    print('\n<--Greetings you!-->')
+    usernameGuess = input('What is your name stranger? > ')
     if usernameGuess == 'q' or usernameGuess == 'Q':
         break
     passwordGuess = input('I need a key to save your secrets... > ')
