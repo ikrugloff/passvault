@@ -3,18 +3,17 @@
 
 # Графический интерфейс пользователского окна регистрации
 
-import sys
-import os
-import time
-import sqlalchemy
+import sys, os, time # Не помню, так можно импортировать или нет. В сети вижу, что люди так делают импорты
+
+import sqlalchemy, sqlite3
+
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QMessageBox
 
 import registration_page_ui
-# import core
 import crypt_db
-import sqlite3
+
 
 USERNAME = crypt_db.get_master_login()
 PASSWORD = crypt_db.get_master_pass()
@@ -40,7 +39,7 @@ class RegWindow(QtWidgets.QMainWindow):
         passwordguess = self.ui.pasInput.text()
         # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
         if usernameguess == USERNAME and passwordguess == PASSWORD:
-            QMessageBox.question(self, 'Wrong login', f'\n This login already exists!\n', QMessageBox.Ok)
+            QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
 
         elif len(usernameguess) == 0 and len(passwordguess) or ((len(usernameguess) == 0 and len(passwordguess)) == 0):
             QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
@@ -61,6 +60,7 @@ reg_page = RegWindow()
 reg_page.show()
 sys.exit(app.exec_())
 
+
 # Валидация правильности введеной почты
 # import re
 # def check_valid_email(email):
@@ -74,3 +74,11 @@ sys.exit(app.exec_())
 #     print("This is a valid email address")
 # else:
 #     print("This is not a valid email address")
+
+
+# Генератор паролей
+# import os, random, string
+# length = 10
+# chars = string.ascii_letters + string.digits + '!@#$%^&*()'
+# random.seed = (os.urandom(1024))
+# print ''.join(random.choice(chars) for i in range(length))
