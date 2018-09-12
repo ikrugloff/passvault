@@ -2,9 +2,7 @@
 # $ pyuic5 C:\Project\registration_page.ui -o C:\Project\registration_page_ui.py -x
 
 # Графический интерфейс пользователского окна регистрации
-
 import sys, os, time # Не помню, так можно импортировать или нет. В сети вижу, что люди так делают импорты
-
 import sqlalchemy, sqlite3
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
@@ -40,16 +38,38 @@ class RegWindow(QtWidgets.QMainWindow):
         # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
         if usernameguess == USERNAME and passwordguess == PASSWORD:
             QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
-
-        elif len(usernameguess) == 0 and len(passwordguess) or ((len(usernameguess) == 0 and len(passwordguess)) == 0):
+        # Проерка если поля пустые
+        elif (len(usernameguess) == 0 and len(passwordguess) == 0) or ((len(usernameguess) == 0 or len(passwordguess)) == 0):
             QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
                                  QMessageBox.Ok)
+        # Сохранений в БД логина и пароля
+        else:
+            QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
+            login = usernameguess
+            password = passwordguess
+            # db = sqlite3.connect('vault.db')
+            # cur = db.cursor()
+            # sql = 'INSERT INTO master VALUES ({}, {})'.format(login, password)
+            # cur.execute(sql)
 
-        # else:
-        #     conn = sqlalchemy.create_engine('sqlite:///vault.db')
+            # con = sqlite3.connect('vault.db')
+            # data = [login, password]
+            # with con:
+            #     cur = con.cursor()
+            #     cur.executemany('INSERT INTO master VALUES(?, ?)', data)
+            #     con.commit()
+
+
+            # query = 'INSERT INTO master VALUES (%s, %s)' % (usernameguess, passwordguess)
+            # print(query)
+            # cur.execute(query)
+            # con.commit()
+
+
+        # conn = sqlalchemy.create_engine('sqlite:///vault.db')
         # sql = 'INSERT into master values(?)'
         # rows = conn.execute(sql, usernameguess)
-        # QMessageBox.question(self, 'Approved', '\nYour password saved!', QMessageBox.Ok)
+
         # self.close()
         # os.system('login_page.py')  # Пока временно поставил открытие странийы авторизации
 
@@ -59,6 +79,8 @@ if __name__ == "__main__":
 reg_page = RegWindow()
 reg_page.show()
 sys.exit(app.exec_())
+
+
 
 
 # Валидация правильности введеной почты
