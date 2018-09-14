@@ -2,7 +2,7 @@
 # $ pyuic5 C:\Project\registration_page.ui -o C:\Project\registration_page_ui.py -x
 
 # Графический интерфейс пользователского окна регистрации
-import sys, os, time # Не помню, так можно импортировать или нет. В сети вижу, что люди так делают импорты
+import sys, os, time  # Не помню, так можно импортировать или нет. В сети вижу, что люди так делают импорты
 import sqlalchemy, sqlite3
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
@@ -11,7 +11,6 @@ from PyQt5.QtWidgets import QMessageBox
 
 import registration_page_ui
 import crypt_db
-
 
 USERNAME = crypt_db.get_master_login()
 PASSWORD = crypt_db.get_master_pass()
@@ -39,7 +38,9 @@ class RegWindow(QtWidgets.QMainWindow):
         if usernameguess == USERNAME and passwordguess == PASSWORD:
             QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
         # Проерка если поля пустые
-        elif (len(usernameguess) == 0 and len(passwordguess) == 0) or ((len(usernameguess) == 0 or len(passwordguess)) == 0):
+        # elif (len(usernameguess) == 0 and len(passwordguess) == 0) or ((len(usernameguess) == 0 or len(passwordguess)) == 0):
+        elif (usernameguess is USERNAME and passwordguess is PASSWORD) or (
+                usernameguess is USERNAME or passwordguess is PASSWORD):
             QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
                                  QMessageBox.Ok)
         # Сохранений в БД логина и пароля
@@ -59,12 +60,10 @@ class RegWindow(QtWidgets.QMainWindow):
             #     cur.executemany('INSERT INTO master VALUES(?, ?)', data)
             #     con.commit()
 
-
             # query = 'INSERT INTO master VALUES (%s, %s)' % (usernameguess, passwordguess)
             # print(query)
             # cur.execute(query)
             # con.commit()
-
 
         # conn = sqlalchemy.create_engine('sqlite:///vault.db')
         # sql = 'INSERT into master values(?)'
@@ -79,9 +78,6 @@ if __name__ == "__main__":
 reg_page = RegWindow()
 reg_page.show()
 sys.exit(app.exec_())
-
-
-
 
 # Валидация правильности введеной почты
 # import re
