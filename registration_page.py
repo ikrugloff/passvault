@@ -42,18 +42,7 @@ class RegWindow(QtWidgets.QMainWindow):
                 (len(usernameguess) == 0 or len(passwordguess)) == 0):
             QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
                                  QMessageBox.Ok)
-        # Сохранений в БД логина и пароля
         else:
-            # QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
-            # login = crypt_db.encrypt(usernameguess)
-            # password = crypt_db.encrypt(passwordguess)
-            # conn = sqlalchemy.create_engine('sqlite:///vault.db')
-            # sql_1 = 'UPDATE master SET login=? WHERE id = 1'
-            # sql_2 = 'UPDATE master SET password=? WHERE id = 1'
-            # rows = conn.execute(sql_1, login)
-            # rows = conn.execute(sql_2, password)
-            # self.close()
-            # os.system('main_page.py')
             pass
 
 
@@ -62,27 +51,3 @@ if __name__ == "__main__":
     reg_page = RegWindow()
     reg_page.show()
     sys.exit(app.exec_())
-
-# Валидация правильности введеной почты
-# import re
-# def check_valid_email(email):
-#     if len(email) > 7:
-#         if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?)$", email) != None:
-#             return True
-#     return False
-#
-#
-# if check_valid_email("my.email@gmail.com") == True:
-#     print("This is a valid email address")
-# else:
-#     print("This is not a valid email address")
-
-
-# Генератор паролей
-# import os, random, string
-# length = 10
-# chars = string.ascii_letters + string.digits + '!@#$%^&*()'
-# random.seed = (os.urandom(1024))
-# print ''.join(random.choice(chars) for i in range(length))
-# Gimli = gAAAAABblDQYBbTiNouho6zLrduHqjrenUJm9UDbEXmTiEBGbMyS6K7N2bYDbBO-roAftaLiyQgHdGlaFqw3hDQ-PGlo7s94aw==
-# ring = gAAAAABbm9X2-tFinGRksbcAR_yiQ6DL5pY6ytUk6RyyozZ_TTuPXhJZao8SG7uS-CL143QZtgOtubmqhKuH6m7PPYMAjb7x0A==
