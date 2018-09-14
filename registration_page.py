@@ -37,40 +37,24 @@ class RegWindow(QtWidgets.QMainWindow):
         # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
         if usernameguess == USERNAME and passwordguess == PASSWORD:
             QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
-        # Проерка если поля пустые
-        # elif (len(usernameguess) == 0 and len(passwordguess) == 0) or ((len(usernameguess) == 0 or len(passwordguess)) == 0):
-        elif (usernameguess is USERNAME and passwordguess is PASSWORD) or (
-                usernameguess is USERNAME or passwordguess is PASSWORD):
+        # Проверка если поля пустые
+        elif (len(usernameguess) == 0 and len(passwordguess) == 0) or (
+                (len(usernameguess) == 0 or len(passwordguess)) == 0):
             QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
                                  QMessageBox.Ok)
         # Сохранений в БД логина и пароля
         else:
-            QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
-            login = usernameguess
-            password = passwordguess
-            # db = sqlite3.connect('vault.db')
-            # cur = db.cursor()
-            # sql = 'INSERT INTO master VALUES ({}, {})'.format(login, password)
-            # cur.execute(sql)
-
-            # con = sqlite3.connect('vault.db')
-            # data = [login, password]
-            # with con:
-            #     cur = con.cursor()
-            #     cur.executemany('INSERT INTO master VALUES(?, ?)', data)
-            #     con.commit()
-
-            # query = 'INSERT INTO master VALUES (%s, %s)' % (usernameguess, passwordguess)
-            # print(query)
-            # cur.execute(query)
-            # con.commit()
-
-        # conn = sqlalchemy.create_engine('sqlite:///vault.db')
-        # sql = 'INSERT into master values(?)'
-        # rows = conn.execute(sql, usernameguess)
-
-        # self.close()
-        # os.system('login_page.py')  # Пока временно поставил открытие странийы авторизации
+            # QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
+            # login = crypt_db.encrypt(usernameguess)
+            # password = crypt_db.encrypt(passwordguess)
+            # conn = sqlalchemy.create_engine('sqlite:///vault.db')
+            # sql_1 = 'UPDATE master SET login=? WHERE id = 1'
+            # sql_2 = 'UPDATE master SET password=? WHERE id = 1'
+            # rows = conn.execute(sql_1, login)
+            # rows = conn.execute(sql_2, password)
+            pass
+            # self.close()
+            # os.system('login_page.py')  # Пока временно поставил открытие страницы авторизации
 
 
 if __name__ == "__main__":
@@ -100,3 +84,7 @@ sys.exit(app.exec_())
 # chars = string.ascii_letters + string.digits + '!@#$%^&*()'
 # random.seed = (os.urandom(1024))
 # print ''.join(random.choice(chars) for i in range(length))
+
+
+# Gimli = gAAAAABblDQYBbTiNouho6zLrduHqjrenUJm9UDbEXmTiEBGbMyS6K7N2bYDbBO-roAftaLiyQgHdGlaFqw3hDQ-PGlo7s94aw==
+# ring = gAAAAABbm9X2-tFinGRksbcAR_yiQ6DL5pY6ytUk6RyyozZ_TTuPXhJZao8SG7uS-CL143QZtgOtubmqhKuH6m7PPYMAjb7x0A==
