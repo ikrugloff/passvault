@@ -52,16 +52,16 @@ class RegWindow(QtWidgets.QMainWindow):
             # sql_2 = 'UPDATE master SET password=? WHERE id = 1'
             # rows = conn.execute(sql_1, login)
             # rows = conn.execute(sql_2, password)
-            pass
             # self.close()
-            # os.system('login_page.py')  # Пока временно поставил открытие страницы авторизации
+            # os.system('main_page.py')
+            pass
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-reg_page = RegWindow()
-reg_page.show()
-sys.exit(app.exec_())
+    reg_page = RegWindow()
+    reg_page.show()
+    sys.exit(app.exec_())
 
 # Валидация правильности введеной почты
 # import re
@@ -84,7 +84,5 @@ sys.exit(app.exec_())
 # chars = string.ascii_letters + string.digits + '!@#$%^&*()'
 # random.seed = (os.urandom(1024))
 # print ''.join(random.choice(chars) for i in range(length))
-
-
 # Gimli = gAAAAABblDQYBbTiNouho6zLrduHqjrenUJm9UDbEXmTiEBGbMyS6K7N2bYDbBO-roAftaLiyQgHdGlaFqw3hDQ-PGlo7s94aw==
 # ring = gAAAAABbm9X2-tFinGRksbcAR_yiQ6DL5pY6ytUk6RyyozZ_TTuPXhJZao8SG7uS-CL143QZtgOtubmqhKuH6m7PPYMAjb7x0A==

@@ -72,8 +72,7 @@ def output():
                 output_dict['Password'] = decrypt(passwords[output_count][0].encode('utf-8')).decode('utf-8')
                 outputs.append(output_dict)
                 output_count += 1
-        for output_ in outputs:
-                print(output_)
+        return outputs
 
 
 def check_master_password():
