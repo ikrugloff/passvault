@@ -12,9 +12,6 @@ from PyQt5.QtWidgets import QMessageBox
 import registration_page_ui
 import crypt_db
 
-# USERNAME = crypt_db.get_master_login()
-# PASSWORD = crypt_db.get_master_pass()
-
 
 class RegWindow(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -34,6 +31,7 @@ class RegWindow(QtWidgets.QMainWindow):
     def save_to_db(self):
         usernameguess = self.ui.emailInput.text()
         passwordguess = self.ui.pasInput.text()
+        # TODO:
         # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
         # if usernameguess == USERNAME and passwordguess == PASSWORD:
         #     QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
@@ -44,16 +42,11 @@ class RegWindow(QtWidgets.QMainWindow):
                                  QMessageBox.Ok)
         else:
             QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
-            password = crypt_db.encrypt(passwordguess)
-            conn = sqlalchemy.create_engine('sqlite:///vault.db')
-            sql_2 = 'UPDATE master SET password=? WHERE id = 1'
-            rows = conn.execute(sql_2, password)
-            # pass
+            password = crypt_db.encrypt(passwordguess).decode('utf-8')
+            crypt_db.create_master_password(password)
+
             self.close()
-            os.system('python login_page.py')
-
-
-            pass
+            os.system('python core_gui.py')
 
 
 if __name__ == "__main__":
