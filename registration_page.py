@@ -12,8 +12,8 @@ from PyQt5.QtWidgets import QMessageBox
 import registration_page_ui
 import crypt_db
 
-USERNAME = crypt_db.get_master_login()
-PASSWORD = crypt_db.get_master_pass()
+# USERNAME = crypt_db.get_master_login()
+# PASSWORD = crypt_db.get_master_pass()
 
 
 class RegWindow(QtWidgets.QMainWindow):
@@ -35,14 +35,24 @@ class RegWindow(QtWidgets.QMainWindow):
         usernameguess = self.ui.emailInput.text()
         passwordguess = self.ui.pasInput.text()
         # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
-        if usernameguess == USERNAME and passwordguess == PASSWORD:
-            QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
+        # if usernameguess == USERNAME and passwordguess == PASSWORD:
+        #     QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
         # Проверка если поля пустые
-        elif (len(usernameguess) == 0 and len(passwordguess) == 0) or (
+        if (len(usernameguess) == 0 and len(passwordguess) == 0) or (
                 (len(usernameguess) == 0 or len(passwordguess)) == 0):
             QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
                                  QMessageBox.Ok)
         else:
+            QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
+            password = crypt_db.encrypt(passwordguess)
+            conn = sqlalchemy.create_engine('sqlite:///vault.db')
+            sql_2 = 'UPDATE master SET password=? WHERE id = 1'
+            rows = conn.execute(sql_2, password)
+            # pass
+            self.close()
+            os.system('python login_page.py')
+
+
             pass
 
 
