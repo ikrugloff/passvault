@@ -1,5 +1,6 @@
 import sys
 import crypt_db
+import pytest
 
 
 def main():
@@ -29,11 +30,14 @@ def main():
 
         if USERNAME == usernameGuess and PASSWORD == passwordGuess:
             print(f'\n<--Welcome back master {usernameGuess}!-->\n')
-            crypt_db.output()
-            break
+
+            @pytest.mark.skip(reason='no way of currently testing this')
+            def output_return():
+                return [print(output) for output in crypt_db.output()]
+            # pytest.exit('The test finished successfully!')
+            output_return()
         else:
             print('\nYou are not prepared!!!')
-
         print('\n<--Greetings you!-->')
         usernameGuess = input('What is your name stranger? > ')
         if usernameGuess == 'q' or usernameGuess == 'Q':
@@ -41,6 +45,7 @@ def main():
         passwordGuess = input('I need a key to save your secrets... > ')
         if passwordGuess == 'q' or passwordGuess == 'Q':
             break
+
 
 if __name__ == '__main__':
     main()

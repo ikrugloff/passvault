@@ -1,5 +1,9 @@
 import core
 
+"""
+To run the test write in console: python -m pytest test_app.py -vv
+Or: PYTHONPATH=. py.test -v -l
+"""
 
 def test_app():
     input_values = ['ring', 'Gimli', 'ring']
