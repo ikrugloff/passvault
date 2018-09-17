@@ -1,6 +1,7 @@
 # Преобразование файлов из ui  в py
 # $ pyuic5 C:\Project\registration_page.ui -o C:\Project\registration_page_ui.py -x
-
+#!/usr/bin python3.6
+# -*- coding: utf-8 -*-
 # Графический интерфейс пользователского окна регистрации
 import sys, os, time  # Не помню, так можно импортировать или нет. В сети вижу, что люди так делают импорты
 import sqlalchemy, sqlite3
