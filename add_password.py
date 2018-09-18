@@ -31,23 +31,24 @@ class AddPassword(QtWidgets.QMainWindow):
             e.ignore()
 
     def save_to_db(self):
-        usernameguess = self.ui.emailInput.text()
-        passwordguess = self.ui.pasInput.text()
-        # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
-        # if usernameguess == USERNAME and passwordguess == PASSWORD:
-        #     QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
-        # Проверка если поля пустые
-        if (len(usernameguess) == 0 and len(passwordguess) == 0) or (
-                (len(usernameguess) == 0 or len(passwordguess)) == 0):
-            QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
-                                 QMessageBox.Ok)
-        else:
-            QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
-            password = crypt_db.encrypt(passwordguess).decode('utf-8')
-            crypt_db.create_master_password(password)
-
-            self.close()
-            os.system('python main_page.py')
+        # usernameguess = self.ui.emailInput.text()
+        # passwordguess = self.ui.pasInput.text()
+        # # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
+        # # if usernameguess == USERNAME and passwordguess == PASSWORD:
+        # #     QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
+        # # Проверка если поля пустые
+        # if (len(usernameguess) == 0 and len(passwordguess) == 0) or (
+        #         (len(usernameguess) == 0 or len(passwordguess)) == 0):
+        #     QMessageBox.question(self, 'Empty login or password', f'\n Please, enter login and password\n',
+        #                          QMessageBox.Ok)
+        # else:
+        #     QMessageBox.question(self, 'Success', f'\n These login and password saved to DB!\n', QMessageBox.Ok)
+        #     password = crypt_db.encrypt(passwordguess).decode('utf-8')
+        #     crypt_db.create_master_password(password)
+        #
+        #     self.close()
+        #     os.system('python main_page.py')
+        pass
 
     def close_window(self): # функция закрытия окна добавления пароля при нажатии на кнопку Cancel
         self.close()
