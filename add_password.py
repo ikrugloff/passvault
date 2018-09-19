@@ -26,7 +26,7 @@ class AddPassword(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui = add_password_ui.Ui_AddPass()
         self.ui.setupUi(self)
-        self.ui.pushButtonOk.clicked.connect(self.save_to_db)
+        self.ui.pushButtonOk.clicked.connect(self.add_new_string)
         self.ui.pushButtonGenerate.clicked.connect(self.gen_password)
         self.ui.pushButtonCancel.clicked.connect(self.close_window)
 
@@ -38,7 +38,7 @@ class AddPassword(QtWidgets.QMainWindow):
         else:
             e.ignore()
 
-    def save_to_db(self):
+    def add_new_string(self):
         website = self.ui.emailInput_Website.text()
         login = self.ui.emailInput_Login.text()
         password = self.ui.pasInput_Password.text()
