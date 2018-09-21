@@ -2,8 +2,6 @@
 Статьи
 http://qaru.site/questions/7301200/pyqt5-pass-a-value-dynamically-in-qlineedit-box-when-event-is-clicked
 
-
-
 """
 
 import sys
@@ -61,11 +59,8 @@ class AddPassword(QtWidgets.QMainWindow):
         chars = string.ascii_letters + string.digits + '!@#$%^&*()'
         random.seed = (os.urandom(1024))
         generated_password = (''.join(random.choice(chars) for i in range(length)))
-        print(generated_password)
-        return generated_password
-        self.ui.self.pasInput_Password.setText(generated_password)
-        self.ui.pasInput_Password.text(generated_password)
-
+        # print(generated_password)
+        self.ui.pasInput_Password.setText(str(generated_password))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
