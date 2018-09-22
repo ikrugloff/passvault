@@ -8,23 +8,36 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(677, 700)
+        MainWindow.resize(677, 702)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.header = QtWidgets.QFrame(self.centralwidget)
         self.header.setGeometry(QtCore.QRect(0, 0, 681, 151))
         self.header.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"")
+                                  "")
         self.header.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.header.setObjectName("header")
-        self.logo_2 = QtWidgets.QLabel(self.header)
-        self.logo_2.setGeometry(QtCore.QRect(10, 20, 281, 71))
-        self.logo_2.setStyleSheet("background-color: rgb(192, 89, 255);")
-        self.logo_2.setObjectName("logo_2")
+        self.logo = QtWidgets.QLabel(self.header)
+        self.logo.setGeometry(QtCore.QRect(10, 20, 281, 71))
+        self.logo.setStyleSheet("background-color: rgb(192, 89, 255);")
+        self.logo.setObjectName("logo")
+        self.addNewPas = QtWidgets.QPushButton(self.header)
+        self.addNewPas.setGeometry(QtCore.QRect(570, 30, 81, 71))
+        self.addNewPas.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.addNewPas.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.addNewPas.setAutoFillBackground(False)
+        self.addNewPas.setStyleSheet("")
+        self.addNewPas.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("icons/round-add-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.addNewPas.setIcon(icon)
+        self.addNewPas.setIconSize(QtCore.QSize(50, 50))
+        self.addNewPas.setObjectName("addNewPas")
         self.login_wrapper = QtWidgets.QWidget(self.centralwidget)
         self.login_wrapper.setGeometry(QtCore.QRect(230, 160, 211, 501))
         self.login_wrapper.setObjectName("login_wrapper")
@@ -67,8 +80,22 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.logo_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">PassVault</span></p></body></html>"))
-        self.login_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Login</span></p></body></html>"))
-        self.resource_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Resource</span></p></body></html>"))
-        self.pas_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Password</span></p></body></html>"))
+        self.logo.setText(_translate("MainWindow",
+                                     "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">PassVault</span></p></body></html>"))
+        self.login_title.setText(_translate("MainWindow",
+                                            "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Login</span></p></body></html>"))
+        self.resource_title.setText(_translate("MainWindow",
+                                               "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Resource</span></p></body></html>"))
+        self.pas_title.setText(_translate("MainWindow",
+                                          "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Password</span></p></body></html>"))
 
+
+if __name__ == "__main__":
+    import sys
+
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

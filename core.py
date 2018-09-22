@@ -7,10 +7,10 @@ def main():
     password_check = crypt_db.check_master_password()
 
     while password_check is None:
-            new_master_password = str(input('My lord, create a new master password please! >'))
-            new_master_password = crypt_db.encrypt(new_master_password).decode('utf-8')
-            crypt_db.create_master_password(new_master_password)
-            password_check = crypt_db.check_master_password()
+        new_master_password = str(input('My lord, create a new master password please! >'))
+        new_master_password = crypt_db.encrypt(new_master_password).decode('utf-8')
+        crypt_db.create_master_password(new_master_password)
+        password_check = crypt_db.check_master_password()
 
     print('<--Greetings you!-->')
     # print()
@@ -34,6 +34,7 @@ def main():
             @pytest.mark.skip(reason='no way of currently testing this')
             def output_return():
                 return [print(output) for output in crypt_db.output()]
+
             # pytest.exit('The test finished successfully!')
             output_return()
         else:

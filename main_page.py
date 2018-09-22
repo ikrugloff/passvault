@@ -16,6 +16,7 @@ class MainWindow(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.addNewPas.clicked.connect(self.change_window)
 
     def load_data(self):
         self.ui.resource_list.clear()
@@ -26,6 +27,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.resource_list.addItem(output['Resource_name'])
             self.ui.login_list.addItem(output['Login'])
             self.ui.pas_list.addItem(output['Password'])
+
+    def change_window(self):
+        self.close()
+        os.system('python add_password.py')
 
 
 if __name__ == "__main__":

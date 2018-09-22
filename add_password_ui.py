@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_AddPass(object):
     def setupUi(self, AddPass):
         AddPass.setObjectName("AddPass")

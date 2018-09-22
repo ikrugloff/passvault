@@ -41,7 +41,7 @@ class Ui_reg_page(object):
         self.formFrame.setGeometry(QtCore.QRect(0, 410, 830, 90))
         self.formFrame.setMaximumSize(QtCore.QSize(830, 90))
         self.formFrame.setStyleSheet("background-color: rgb(194, 255, 235);\n"
-"")
+                                     "")
         self.formFrame.setFrameShape(QtWidgets.QFrame.Panel)
         self.formFrame.setObjectName("formFrame")
         self.formLayout = QtWidgets.QFormLayout(self.formFrame)
@@ -51,19 +51,19 @@ class Ui_reg_page(object):
         self.formFrame_2.setGeometry(QtCore.QRect(0, 0, 830, 90))
         self.formFrame_2.setMaximumSize(QtCore.QSize(830, 90))
         self.formFrame_2.setStyleSheet("background-color: rgb(194, 255, 235);\n"
-"")
+                                       "")
         self.formFrame_2.setFrameShape(QtWidgets.QFrame.Panel)
         self.formFrame_2.setObjectName("formFrame_2")
         self.label_main = QtWidgets.QLabel(self.verticalFrame)
         self.label_main.setGeometry(QtCore.QRect(20, 10, 798, 37))
         self.label_main.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(194, 255, 235);\n"
-"")
+                                      "background-color: rgb(194, 255, 235);\n"
+                                      "")
         self.label_main.setObjectName("label_main")
         self.label_little = QtWidgets.QLabel(self.verticalFrame)
         self.label_little.setGeometry(QtCore.QRect(10, 20, 61, 20))
         self.label_little.setStyleSheet("font: 75 8pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(194, 255, 235);")
+                                        "background-color: rgb(194, 255, 235);")
         self.label_little.setObjectName("label_little")
         self.pasWrapper = QtWidgets.QWidget(self.verticalFrame)
         self.pasWrapper.setGeometry(QtCore.QRect(100, 280, 351, 61))
@@ -108,10 +108,10 @@ class Ui_reg_page(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     RegWindow = QtWidgets.QMainWindow()
     ui = Ui_RegWindow()
     ui.setupUi(RegWindow)
     RegWindow.show()
     sys.exit(app.exec_())
-

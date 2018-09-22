@@ -30,7 +30,6 @@ class LoginWindow(QtWidgets.QMainWindow):
         if usernameGuess == USERNAME and passwordGuess == PASSWORD:
             self.close()
             os.system('python main_page.py')
-            # crypt_db.output()
         else:
             QMessageBox.question(self, 'Approved', '\nYou are not prepared!!!', QMessageBox.Yes)
 

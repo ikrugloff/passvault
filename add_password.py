@@ -22,13 +22,14 @@ class AddPassword(QtWidgets.QMainWindow):
         self.ui.pushButtonGenerate.clicked.connect(self.gen_password)
         self.ui.pushButtonCancel.clicked.connect(self.close_window)
 
-    def closeEvent(self, e):  # Функция открытия диалогового окна для подтверждения закрытия окна регистрации
-        result = QtWidgets.QMessageBox.question(self, "ConfirmDIalog", "Really quit?",
-                                                QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-        if result == QtWidgets.QMessageBox.Yes:
-            e.accept()
-        else:
-            e.ignore()
+    # TODO: Надо сделать так, чтобы окно вылетало только при непосредственном закрытии, а не после создания пароля.
+    # def closeEvent(self, e):  # Функция открытия диалогового окна для подтверждения закрытия окна регистрации
+    #     result = QtWidgets.QMessageBox.question(self, "ConfirmDIalog", "Really quit?",
+    #                                             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+    #     if result == QtWidgets.QMessageBox.Yes:
+    #         e.accept()
+    #     else:
+    #         e.ignore()
 
     def add_new_string(self):
         website = self.ui.emailInput_Website.text()
@@ -43,6 +44,8 @@ class AddPassword(QtWidgets.QMainWindow):
 
         sql = 'INSERT INTO passwords (service, login, password) Values (?, ?, ?)'
         rows = conn.execute(sql, web, log, passw)
+        self.close()
+        os.system('python main_page.py')
 
     def close_window(self):  # функция закрытия окна добавления пароля при нажатии на кнопку Cancel
         self.close()
@@ -53,7 +56,6 @@ class AddPassword(QtWidgets.QMainWindow):
         chars = string.ascii_letters + string.digits + '!@#$%^&*()'
         random.seed = (os.urandom(1024))
         generated_password = (''.join(random.choice(chars) for i in range(length)))
-        # print(generated_password)
         self.ui.pasInput_Password.setText(str(generated_password))
 
 
@@ -61,4 +63,5 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     add_pass = AddPassword()
     add_pass.show()
+
     sys.exit(app.exec_())

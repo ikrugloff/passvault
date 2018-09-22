@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_login_page(object):
     def setupUi(self, login_page):
         login_page.setObjectName("login_page")
@@ -21,7 +22,7 @@ class Ui_login_page(object):
         self.header = QtWidgets.QFrame(self.centralwidget)
         self.header.setGeometry(QtCore.QRect(0, 0, 301, 151))
         self.header.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"")
+                                  "")
         self.header.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.header.setObjectName("header")
@@ -74,11 +75,11 @@ class Ui_login_page(object):
     def retranslateUi(self, login_page):
         _translate = QtCore.QCoreApplication.translate
         login_page.setWindowTitle(_translate("login_page", "MainWindow"))
-        self.logo.setText(_translate("login_page", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">PassVault</span></p></body></html>"))
+        self.logo.setText(_translate("login_page",
+                                     "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">PassVault</span></p></body></html>"))
         self.emailInput.setText(_translate("login_page", "Enter your email"))
         self.label_5.setText(_translate("login_page", "Email"))
         self.pasInput.setText(_translate("login_page", "Enter your password"))
         self.label_7.setText(_translate("login_page", "Password"))
         self.loginButton.setText(_translate("login_page", "Log in"))
         self.createButton.setText(_translate("login_page", "Create an account "))
-
