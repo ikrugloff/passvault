@@ -1,9 +1,9 @@
 # Преобразование файлов из ui  в py
 # $ pyuic5 C:\Project\registration_page.ui -o C:\Project\registration_page_ui.py -x
-#!/usr/bin python3.6
-# -*- coding: utf-8 -*-
 # Графический интерфейс пользователского окна регистрации
-import sys, os, time  # Не помню, так можно импортировать или нет. В сети вижу, что люди так делают импорты
+import sys
+import os
+import time
 import sqlalchemy, sqlite3
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
@@ -32,7 +32,6 @@ class RegWindow(QtWidgets.QMainWindow):
     def save_to_db(self):
         usernameguess = self.ui.emailInput.text()
         passwordguess = self.ui.pasInput.text()
-        # TODO:
         # Проверка, если такая учетная запись существует, то вывыодить сообщение об ошибке
         # if usernameguess == USERNAME and passwordguess == PASSWORD:
         #     QMessageBox.question(self, 'Wrong login', f'\n This login and password already exists!\n', QMessageBox.Ok)
