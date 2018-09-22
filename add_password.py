@@ -60,7 +60,7 @@ class AddPassword(QtWidgets.QMainWindow):
         random.seed = (os.urandom(1024))
         generated_password = (''.join(random.choice(chars) for i in range(length)))
         # print(generated_password)
-        self.ui.pasInput_Password.setText(str(generated_password)) # передаем сгенерированный пароль в input
+        self.ui.pasInput_Password.setText(str(generated_password))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
