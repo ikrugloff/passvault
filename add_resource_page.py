@@ -3,38 +3,28 @@ import os
 import string
 import random
 
-import sqlalchemy, sqlite3
+import sqlalchemy
 
-from PyQt5 import QtCore, QtGui, QtWidgets, uic
-from PyQt5.QtCore import pyqtSlot
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
-import add_password_ui
+import add_resource_page_ui
 import crypt_db
 
 
 class AddPassword(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
-        self.ui = add_password_ui.Ui_AddPass()
+        self.ui = add_resource_page_ui.Ui_add_resource_page()
         self.ui.setupUi(self)
-        self.ui.pushButtonOk.clicked.connect(self.add_new_string)
-        self.ui.pushButtonGenerate.clicked.connect(self.gen_password)
-        self.ui.pushButtonCancel.clicked.connect(self.close_window)
-
-    # TODO: Надо сделать так, чтобы окно вылетало только при непосредственном закрытии, а не после создания пароля.
-    # def closeEvent(self, e):  # Функция открытия диалогового окна для подтверждения закрытия окна регистрации
-    #     result = QtWidgets.QMessageBox.question(self, "ConfirmDIalog", "Really quit?",
-    #                                             QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-    #     if result == QtWidgets.QMessageBox.Yes:
-    #         e.accept()
-    #     else:
-    #         e.ignore()
+        self.ui.save_button.clicked.connect(self.add_new_string)
+        self.ui.generate_pas_button.clicked.connect(self.gen_password)
+        self.ui.cancel_button.clicked.connect(self.close_window)
 
     def add_new_string(self):
-        website = self.ui.emailInput_Website.text()
-        login = self.ui.emailInput_Login.text()
-        password = self.ui.pasInput_Password.text()
+        website = self.ui.resource_input.text()
+        login = self.ui.login_input.text()
+        password = self.ui.pas_input.text()
 
         QMessageBox.question(self, 'Success', f'\n These credentials were saved to DB!\n', QMessageBox.Ok)
         conn = sqlalchemy.create_engine('sqlite:///vault.db')
@@ -56,7 +46,7 @@ class AddPassword(QtWidgets.QMainWindow):
         chars = string.ascii_letters + string.digits + '!@#$%^&*()'
         random.seed = (os.urandom(1024))
         generated_password = (''.join(random.choice(chars) for i in range(length)))
-        self.ui.pasInput_Password.setText(str(generated_password))
+        self.ui.pas_input.setText(str(generated_password))
 
 
 if __name__ == "__main__":

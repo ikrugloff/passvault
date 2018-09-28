@@ -1,7 +1,6 @@
 import sys
 import os
 
-from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
 from login_page_ui import *

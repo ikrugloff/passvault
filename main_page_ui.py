@@ -8,7 +8,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -18,7 +17,7 @@ class Ui_MainWindow(object):
         self.header = QtWidgets.QFrame(self.centralwidget)
         self.header.setGeometry(QtCore.QRect(0, 0, 681, 151))
         self.header.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-                                  "")
+"")
         self.header.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.header.setFrameShadow(QtWidgets.QFrame.Raised)
         self.header.setObjectName("header")
@@ -34,9 +33,9 @@ class Ui_MainWindow(object):
         self.addNewPas.setStyleSheet("")
         self.addNewPas.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/round-add-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("static/icons/add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.addNewPas.setIcon(icon)
-        self.addNewPas.setIconSize(QtCore.QSize(50, 50))
+        self.addNewPas.setIconSize(QtCore.QSize(60, 60))
         self.addNewPas.setObjectName("addNewPas")
         self.login_wrapper = QtWidgets.QWidget(self.centralwidget)
         self.login_wrapper.setGeometry(QtCore.QRect(230, 160, 211, 501))
@@ -80,22 +79,18 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.logo.setText(_translate("MainWindow",
-                                     "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">PassVault</span></p></body></html>"))
-        self.login_title.setText(_translate("MainWindow",
-                                            "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Login</span></p></body></html>"))
-        self.resource_title.setText(_translate("MainWindow",
-                                               "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Resource</span></p></body></html>"))
-        self.pas_title.setText(_translate("MainWindow",
-                                          "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Password</span></p></body></html>"))
+        self.logo.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">PassVault</span></p></body></html>"))
+        self.login_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Login</span></p></body></html>"))
+        self.resource_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Resource</span></p></body></html>"))
+        self.pas_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Password</span></p></body></html>"))
 
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
