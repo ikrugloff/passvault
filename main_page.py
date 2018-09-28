@@ -1,8 +1,4 @@
-import sys
 import os
-
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMessageBox
 
 from main_page_ui import *
 import crypt_db
@@ -30,7 +26,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def change_window(self):
         self.close()
-        os.system('python add_password.py')
+        os.system('python add_resource_page.py')
 
 
 if __name__ == "__main__":
