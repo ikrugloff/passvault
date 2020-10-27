@@ -26,7 +26,7 @@ setup(
     install_requires=[
         'PyQt5==5.11.2',
         'SQLAlchemy==1.2.12',
-        'cryptography==2.3.1'
+        'cryptography==3.2'
     ],
     entry_points={
         'console_scripts': [
